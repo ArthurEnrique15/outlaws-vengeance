@@ -4,40 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon;
+    public Transform armBone;
 
-    Vector2 moveDirection;
-    Vector2 mousePosition;
+    Vector3 mousePosition;
+    float currentAngle;
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
-
-    // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RotateArmAndWeaponTowardsMouse();
 
         if(Input.GetMouseButtonDown(0))
         {
-            weapon.Fire(rb.rotation);
+            weapon.Fire(currentAngle);
         }
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    private void FixedUpdate()
+    void RotateArmAndWeaponTowardsMouse()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        Vector3 direction = mousePosition - armBone.position;
 
-        Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = aimAngle;
+        currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
     }
 }
