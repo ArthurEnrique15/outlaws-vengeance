@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon;
     public Transform armBone;
+    public float health = 100f;
+
 
     Vector3 mousePosition;
     float currentAngle;
@@ -30,5 +32,23 @@ public class PlayerController : MonoBehaviour
         currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log("Player tomou dano: " + damage + " | Vida restante: " + health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Implementar a lógica de morte do player (destruição, animação, etc.)
+        Debug.Log("Player morreu!");
+        Destroy(gameObject);
     }
 }
