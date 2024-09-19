@@ -4,50 +4,46 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float headshotDamage = 100f;  // Dano se acertar a cabeça
-    public float torsoDamage = 50f;      // Dano se acertar o torso
-    public float legDamage = 25f;        // Dano se acertar as pernas
+    public Rigidbody2D rb;
+    public float headDamage = 60f;
+    public float upperTorsoDamage = 30f;
+    public float lowerTorsoDamage = 20f;
+    public float legDamage = 15f;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica qual parte do corpo foi atingida e aplica o dano adequado
-        if (collision.CompareTag("Head"))
-        {
-            ApplyDamage(collision, headshotDamage);
-        }
-        else if (collision.CompareTag("Torso"))
-        {
-            ApplyDamage(collision, torsoDamage);
-        }
-        else if (collision.CompareTag("Legs"))
-        {
-            ApplyDamage(collision, legDamage);
-        }
-
-        // Destroi a bala após o impacto
         Destroy(gameObject);
+
+        if (collision.collider.name.Contains("head"))
+        {
+            ApplyDamage(collision.collider, headDamage);
+        }
+        else if (collision.collider.name.Contains("upper_torso"))
+        {
+            ApplyDamage(collision.collider, upperTorsoDamage);
+        }
+        else if (collision.collider.name.Contains("lower_torso"))
+        {
+            ApplyDamage(collision.collider, lowerTorsoDamage);
+        }
+        else if (collision.collider.name.Contains("leg") || collision.collider.name.Contains("calf") || collision.collider.name.Contains("foot"))
+        {
+            ApplyDamage(collision.collider, legDamage);
+        }
     }
 
-    void ApplyDamage(Collider2D collision, float damage)
+    void ApplyDamage(Collider2D collider, float damage)
     {
-        // Verifica se colidiu com o Player
-        if (collision.CompareTag("Player"))
+        PlayerController player = collider.GetComponentInParent<PlayerController>();
+        if (player != null)
         {
-            PlayerController player = collision.GetComponentInParent<PlayerController>();
-            if (player != null)
-            {
-                player.TakeDamage(damage);
-            }
+            player.TakeDamage(damage);
         }
 
-        // Verifica se colidiu com o Enemy
-        else if (collision.CompareTag("Enemy"))
+        EnemyController enemy = collider.GetComponentInParent<EnemyController>();
+        if (enemy != null)
         {
-            EnemyController enemy = collision.GetComponentInParent<EnemyController>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-            }
+            enemy.TakeDamage(damage);
         }
     }
 }

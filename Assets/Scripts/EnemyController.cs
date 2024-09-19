@@ -39,10 +39,7 @@ public class EnemyController : MonoBehaviour
       // currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + Random.Range(minRandomOffset, maxRandomOffset);
       currentAngle = Random.Range(160f, 220f);
 
-      // Aplica a rotação ao braço do inimigo
       armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
-
-      Debug.Log(currentAngle);
 
       weapon.Fire(currentAngle);
     }
