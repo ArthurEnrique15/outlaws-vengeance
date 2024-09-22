@@ -8,11 +8,11 @@ public class EnemyController : MonoBehaviour
     public Weapon weapon;
     public Transform armBone; // O braço do inimigo que será rotacionado
     public Transform player;  // Referência ao transform do jogador
-    public AnimationsTriggerController animationsController;
+    public Animator animator;
     public float health = 100f;
 
-    public float minRandomOffset = -10f; // Mínimo de desvio aleatório (em graus)
-    public float maxRandomOffset = 10f;  // Máximo de desvio aleatório (em graus)
+    public float minRandomOffset = -50f; // Mínimo de desvio aleatório (em graus)
+    public float maxRandomOffset = 50f;  // Máximo de desvio aleatório (em graus)
     public float fireRate = 0.1f;  // Tempo entre tiros, em segundos (uma vez por segundo)
     private float fireCooldown = 0f; // Contador de cooldown para controlar quando o inimigo pode atirar novamente
 
@@ -33,21 +33,22 @@ public class EnemyController : MonoBehaviour
 
     void AimAndShoot()
     {
-      Vector3 direction = player.position - armBone.position;
+        Vector3 direction = player.position - armBone.position;
 
-      // Calcula o ângulo em radianos e converte para graus
-      // currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + Random.Range(minRandomOffset, maxRandomOffset);
-      currentAngle = Random.Range(160f, 220f);
+        // Calcula o ângulo em radianos e converte para graus
+        currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + Random.Range(minRandomOffset, maxRandomOffset);
+        //   currentAngle = Random.Range(160f, 220f);
 
-      armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
+        armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
 
-    //   weapon.Fire(currentAngle);
+        // weapon.Fire(currentAngle);
     }
 
     public void TakeDamage(float damage, string hitLocation = "")
     {
         health -= damage;
         Debug.Log("Enemy tomou dano: " + damage + " | Vida restante: " + health);
+        Debug.Log(hitLocation);
 
         if (health <= 0)
         {
@@ -55,13 +56,21 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        animationsController.TriggerHitAnimation(hitLocation);
+        if (hitLocation == "lowerTorso")
+        {
+            animator.SetTrigger("LowerTorsoHitTrigger");
+        }
+        else if (hitLocation == "leg" || hitLocation == "foot")
+        {
+            animator.SetTrigger("LegHitTrigger");
+        }
     }
 
     void Die()
     {
         // Implementar a lógica de morte do Enemy (destruição, animação, etc.)
         Debug.Log("Enemy morreu!");
+        // animationsController.TriggerDeathAnimation();
         Destroy(gameObject);
     }
 }
