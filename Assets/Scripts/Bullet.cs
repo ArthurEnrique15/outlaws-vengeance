@@ -25,11 +25,11 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.collider.name.Contains("lower_torso"))
         {
-            ApplyDamage(collision.collider, lowerTorsoDamage);
+            ApplyDamage(collision.collider, lowerTorsoDamage, "lowerTorso");
         }
         else if (collision.collider.name.Contains("leg") || collision.collider.name.Contains("calf"))
         {
-            ApplyDamage(collision.collider, legDamage);
+            ApplyDamage(collision.collider, legDamage, "leg");
         }
         else if (collision.collider.name.Contains("foot"))
         {

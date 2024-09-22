@@ -7,9 +7,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon;
     public Transform armBone;
-    public AnimationsTriggerController animationsController;
     public float health = 100f;
-
 
     Vector3 mousePosition;
     float currentAngle;
@@ -45,8 +43,6 @@ public class PlayerController : MonoBehaviour
             Die();
             return;
         }
-
-        animationsController.TriggerHitAnimation(hitLocation);
     }
 
     void Die()
