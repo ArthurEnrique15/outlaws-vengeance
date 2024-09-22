@@ -8,13 +8,13 @@ public class EnemyController : MonoBehaviour
     public Weapon weapon;
     public Transform armBone; // O braço do inimigo que será rotacionado
     public Transform player;  // Referência ao transform do jogador
+    public AnimationsTriggerController animationsController;
+    public float health = 100f;
 
     public float minRandomOffset = -10f; // Mínimo de desvio aleatório (em graus)
     public float maxRandomOffset = 10f;  // Máximo de desvio aleatório (em graus)
     public float fireRate = 0.1f;  // Tempo entre tiros, em segundos (uma vez por segundo)
     private float fireCooldown = 0f; // Contador de cooldown para controlar quando o inimigo pode atirar novamente
-
-    public float health = 100f;
 
     float currentAngle;
 
@@ -41,10 +41,10 @@ public class EnemyController : MonoBehaviour
 
       armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
 
-      weapon.Fire(currentAngle);
+    //   weapon.Fire(currentAngle);
     }
 
-     public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string hitLocation = "")
     {
         health -= damage;
         Debug.Log("Enemy tomou dano: " + damage + " | Vida restante: " + health);
@@ -52,7 +52,10 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            return;
         }
+
+        animationsController.TriggerHitAnimation(hitLocation);
     }
 
     void Die()

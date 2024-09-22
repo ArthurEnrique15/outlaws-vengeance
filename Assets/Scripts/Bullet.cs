@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
         EnemyController enemy = collider.GetComponentInParent<EnemyController>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, hitLocation);
         }
     }
 }
