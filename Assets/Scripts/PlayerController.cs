@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-2)]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Weapon weapon;
     public Transform armBone;
+    public Animator animator;
     public float health = 100f;
 
     Vector3 mousePosition;
     float currentAngle;
 
-    void Update()
+    void LateUpdate()
     {
+        if (health <= 0) return;
+
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         RotateArmAndWeaponTowardsMouse();
@@ -36,19 +40,12 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage, string hitLocation = "")
     {
         // health -= damage;
-        // Debug.Log("Player tomou dano: " + damage + " | Vida restante: " + health);
+        Debug.Log("Player tomou dano: " + damage + " | Vida restante: " + health);
+        Debug.Log(hitLocation);
 
         if (health <= 0)
         {
-            Die();
-            return;
+            animator.SetTrigger("DeathTrigger");
         }
-    }
-
-    void Die()
-    {
-        // Implementar a lógica de morte do player (destruição, animação, etc.)
-        Debug.Log("Player morreu!");
-        Destroy(gameObject);
     }
 }

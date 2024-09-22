@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-2)]
 public class EnemyController : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -11,15 +12,17 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public float health = 100f;
 
-    public float minRandomOffset = -50f; // Mínimo de desvio aleatório (em graus)
-    public float maxRandomOffset = 50f;  // Máximo de desvio aleatório (em graus)
+    public float minRandomOffset = -15f; // Mínimo de desvio aleatório (em graus)
+    public float maxRandomOffset = 5f;  // Máximo de desvio aleatório (em graus)
     public float fireRate = 0.1f;  // Tempo entre tiros, em segundos (uma vez por segundo)
     private float fireCooldown = 0f; // Contador de cooldown para controlar quando o inimigo pode atirar novamente
 
     float currentAngle;
 
-    void Update()
+    void LateUpdate()
     {
+        if (health <= 0) return;
+
         // Atualiza o temporizador para o disparo
         fireCooldown -= Time.deltaTime; // Diminui o cooldown a cada frame
 
@@ -41,7 +44,7 @@ public class EnemyController : MonoBehaviour
 
         armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
 
-        // weapon.Fire(currentAngle);
+        weapon.Fire(currentAngle);
     }
 
     public void TakeDamage(float damage, string hitLocation = "")
@@ -52,25 +55,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
-            return;
+            animator.SetTrigger("DeathTrigger");
         }
-
-        if (hitLocation == "lowerTorso")
-        {
-            animator.SetTrigger("LowerTorsoHitTrigger");
-        }
-        else if (hitLocation == "leg" || hitLocation == "foot")
-        {
-            animator.SetTrigger("LegHitTrigger");
-        }
-    }
-
-    void Die()
-    {
-        // Implementar a lógica de morte do Enemy (destruição, animação, etc.)
-        Debug.Log("Enemy morreu!");
-        // animationsController.TriggerDeathAnimation();
-        Destroy(gameObject);
     }
 }
