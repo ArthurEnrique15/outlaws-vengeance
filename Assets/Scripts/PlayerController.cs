@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon;
     public Transform armBone;
+    public Animator animator;
     public float health = 100f;
 
 
     Vector3 mousePosition;
     float currentAngle;
 
-    void Update()
+    void LateUpdate()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
         armBone.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string hitLocation = "")
     {
         health -= damage;
         Debug.Log("Player tomou dano: " + damage + " | Vida restante: " + health);
@@ -42,6 +43,12 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            return;
+        }
+
+        if (hitLocation == "foot")
+        {
+            animator.SetTrigger("FootShotTrigger");
         }
     }
 

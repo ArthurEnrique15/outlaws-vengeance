@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float upperTorsoDamage = 30f;
     public float lowerTorsoDamage = 20f;
     public float legDamage = 15f;
+    public float footDamage = 10f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,18 +27,22 @@ public class Bullet : MonoBehaviour
         {
             ApplyDamage(collision.collider, lowerTorsoDamage);
         }
-        else if (collision.collider.name.Contains("leg") || collision.collider.name.Contains("calf") || collision.collider.name.Contains("foot"))
+        else if (collision.collider.name.Contains("leg") || collision.collider.name.Contains("calf"))
         {
             ApplyDamage(collision.collider, legDamage);
         }
+        else if (collision.collider.name.Contains("foot"))
+        {
+            ApplyDamage(collision.collider, footDamage, "foot");
+        }
     }
 
-    void ApplyDamage(Collider2D collider, float damage)
+    void ApplyDamage(Collider2D collider, float damage, string hitLocation = "")
     {
         PlayerController player = collider.GetComponentInParent<PlayerController>();
         if (player != null)
         {
-            player.TakeDamage(damage);
+            player.TakeDamage(damage, hitLocation);
         }
 
         EnemyController enemy = collider.GetComponentInParent<EnemyController>();
