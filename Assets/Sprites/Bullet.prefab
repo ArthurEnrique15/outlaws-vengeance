@@ -176,3 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 287152354187247930}
+  headDamage: 60
+  upperTorsoDamage: 30
+  lowerTorsoDamage: 20
+  legDamage: 15
+  footDamage: 10
