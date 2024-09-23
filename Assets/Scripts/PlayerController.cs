@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform armBone;
     public Animator animator;
     public float health = 100f;
+    public HealthBar healthBar;
 
     Vector3 mousePosition;
     float currentAngle;
@@ -39,9 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string hitLocation = "")
     {
-        // health -= damage;
-        Debug.Log("Player tomou dano: " + damage + " | Vida restante: " + health);
-        Debug.Log(hitLocation);
+        health -= damage;
+        healthBar.SetHealthSliderValue(health);
 
         if (health <= 0)
         {

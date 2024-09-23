@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public Transform player;  // Referência ao transform do jogador
     public Animator animator;
     public float health = 100f;
+    public HealthBar healthBar;
 
     public float minRandomOffset = -15f; // Mínimo de desvio aleatório (em graus)
     public float maxRandomOffset = 5f;  // Máximo de desvio aleatório (em graus)
@@ -50,8 +51,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(float damage, string hitLocation = "")
     {
         health -= damage;
-        Debug.Log("Enemy tomou dano: " + damage + " | Vida restante: " + health);
-        Debug.Log(hitLocation);
+        healthBar.SetHealthSliderValue(health);
 
         if (health <= 0)
         {
