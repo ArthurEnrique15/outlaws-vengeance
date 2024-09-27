@@ -361,8 +361,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1829912929}
   - {fileID: 2021002794}
+  - {fileID: 1829912929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1226,7 +1226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyText: {fileID: 708355995}
   continueButton: {fileID: 975394658}
-  duelButton: {fileID: 534725442}
 --- !u!1 &2069640685
 GameObject:
   m_ObjectHideFlags: 0

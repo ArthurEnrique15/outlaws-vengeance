@@ -8,7 +8,6 @@ public class StoryController : MonoBehaviour
     // Referência para o componente de Texto
     public Text storyText;
     public Button continueButton;
-    public Button duelButton;
 
     // Array que contém os trechos da história
     private string[] storyChunks = new string[]
@@ -43,7 +42,6 @@ public class StoryController : MonoBehaviour
         StartCoroutine(TypeText(storyChunks[currentChunk]));
         // Adiciona a função de avanço ao botão "Continue"
         // continueButton.onClick.AddListener(AdvanceStory);
-        // duelButton.gameObject.SetActive(false);
     }
 
     public void AdvanceStory()
@@ -53,12 +51,11 @@ public class StoryController : MonoBehaviour
         {
             currentChunk++;
             StartCoroutine(TypeText(storyChunks[currentChunk]));
-        }
-        else
-        {
-            // Aqui você pode adicionar o que fazer quando a história terminar
-            continueButton.gameObject.SetActive(false); // Desativar o botão no fim da história
-            // duelButton.gameObject.SetActive(true);
+
+            if (currentChunk == storyChunks.Length - 1)
+            {
+                continueButton.gameObject.SetActive(false); // Desativar o botão no fim da história
+            }
         }
     }
 
