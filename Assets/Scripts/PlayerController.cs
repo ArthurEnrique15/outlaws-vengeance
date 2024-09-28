@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float health = 100f;
     public HealthBar healthBar;
+    public bool canShoot = false;
 
     Vector3 mousePosition;
     float currentAngle;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
         RotateArmAndWeaponTowardsMouse();
 
-        if(Input.GetMouseButtonDown(0))
+        if(canShoot && Input.GetMouseButtonDown(0))
         {
             weapon.Fire(currentAngle);
         }

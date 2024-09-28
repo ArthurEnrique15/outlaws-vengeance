@@ -10,8 +10,9 @@ public class EnemyController : MonoBehaviour
     public Transform armBone; // O braço do inimigo que será rotacionado
     public Transform player;  // Referência ao transform do jogador
     public Animator animator;
-    public float health = 100f;
     public HealthBar healthBar;
+    public float health = 100f;
+    public bool canShoot = false;
 
     public float minRandomOffset = -15f; // Mínimo de desvio aleatório (em graus)
     public float maxRandomOffset = 5f;  // Máximo de desvio aleatório (em graus)
@@ -23,6 +24,8 @@ public class EnemyController : MonoBehaviour
     void LateUpdate()
     {
         if (health <= 0) return;
+
+        if (!canShoot) return;
 
         // Atualiza o temporizador para o disparo
         fireCooldown -= Time.deltaTime; // Diminui o cooldown a cada frame
