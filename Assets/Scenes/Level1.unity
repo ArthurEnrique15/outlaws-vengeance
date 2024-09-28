@@ -216,8 +216,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 875619419}
   - {fileID: 918555479}
+  - {fileID: 875619419}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2864,6 +2864,17 @@ PolygonCollider2D:
       - {x: 0.9174022, y: -0.1719669}
       - {x: 0.92465293, y: 0.14591342}
   m_UseDelaunayMesh: 0
+--- !u!114 &1317427066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2118642711277799210, guid: 8054d8eae39fd423e8ffcb1bd6baf053, type: 3}
+  m_PrefabInstance: {fileID: 1968861715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f266ee98001e84880b6103b8633deb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1326531490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1036991126452941459, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
@@ -3137,9 +3148,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1317427066}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+        m_MethodName: GoBackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
