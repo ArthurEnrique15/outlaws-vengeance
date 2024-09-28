@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float health = 100f;
     public HealthBar healthBar;
     public bool canShoot = false;
+    public bool isDead = false;
 
     Vector3 mousePosition;
     float currentAngle;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            isDead = true;
             animator.SetTrigger("DeathTrigger");
         }
     }

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Usando TextMeshPro
+using UnityEngine.UI;
+using TMPro;
 
 public class RoundController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class RoundController : MonoBehaviour
 
     public TextMeshProUGUI roundMessage; // Referência ao texto de mensagem na tela
     public TextMeshProUGUI countdownText; // Referência ao texto do contador na tela
+    public Button nextDuelButton;
+    public Button defeatButton;
 
     private bool isRoundStarted = false;
     private float hoverTimer = 0f;
@@ -26,11 +29,18 @@ public class RoundController : MonoBehaviour
         // Configuração inicial da mensagem e do contador
         roundMessage.text = "Mantenha o mouse sobre o circulo para iniciar!";
         countdownText.text = "";
+
+        nextDuelButton.gameObject.SetActive(false);
+        defeatButton.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (isRoundStarted) return; // Se o round já começou, não faça nada
+        if (isRoundStarted)
+        {
+            CheckIfRoundEnded();
+            return;
+        }
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ajuste do eixo Z para 2D
@@ -52,6 +62,22 @@ public class RoundController : MonoBehaviour
         {
             hoverTimer = 0f; // Resetar o timer se o mouse sair do círculo
             countdownText.text = ""; // Limpa o contador
+        }
+    }
+
+    void CheckIfRoundEnded() {
+        if (playerController.isDead) {
+            roundMessage.text = "Derrota!";
+            // countdownText.text = "Pressione R para reiniciar";
+            playerController.canShoot = false;
+            enemyController.canShoot = false;
+            defeatButton.gameObject.SetActive(true);
+        } else if (enemyController.isDead) {
+            roundMessage.text = "Vitoria!";
+            // countdownText.text = "Pressione R para reiniciar";
+            playerController.canShoot = false;
+            enemyController.canShoot = false;
+            nextDuelButton.gameObject.SetActive(true);
         }
     }
 

@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public HealthBar healthBar;
     public float health = 100f;
     public bool canShoot = false;
+    public bool isDead = false;
 
     public float minRandomOffset = -15f; // Mínimo de desvio aleatório (em graus)
     public float maxRandomOffset = 5f;  // Máximo de desvio aleatório (em graus)
@@ -58,6 +59,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            isDead = true;
             animator.SetTrigger("DeathTrigger");
         }
     }
