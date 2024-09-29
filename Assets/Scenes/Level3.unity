@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 74951259}
   - component: {fileID: 74951258}
   m_Layer: 5
-  m_Name: NextDuelButtonText
+  m_Name: VictoryButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Proximo duelo
+  m_text: prosseguir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4298c480a457f5f4784c234939443709, type: 2}
   m_sharedMaterial: {fileID: 8044178984436389410, guid: 4298c480a457f5f4784c234939443709, type: 2}
@@ -3555,7 +3555,7 @@ GameObject:
   - component: {fileID: 1554833568}
   - component: {fileID: 1554833567}
   m_Layer: 5
-  m_Name: NextDuelButton
+  m_Name: VictoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   isDead: 0
   minRandomOffset: -12
   maxRandomOffset: 3
-  fireRate: 0.5
+  fireRate: 0.3
 --- !u!95 &1853450229
 Animator:
   serializedVersion: 5
