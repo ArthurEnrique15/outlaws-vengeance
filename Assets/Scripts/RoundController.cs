@@ -6,7 +6,7 @@ using TMPro;
 
 public class RoundController : MonoBehaviour
 {
-    public RectTransform startCircle;  // O círculo da UI
+    public RectTransform playerAmmoIndicator;  // O círculo da UI
     public PlayerController playerController;
     public EnemyController enemyController;
     public float hoverTime = 3f;    // Tempo necessário para iniciar o round
@@ -14,7 +14,8 @@ public class RoundController : MonoBehaviour
     public TextMeshProUGUI roundMessage; // Referência ao texto de mensagem na tela
     public TextMeshProUGUI countdownText; // Referência ao texto do contador na tela
     public Button nextDuelButton;
-    public Button defeatButton;
+    public Button goBackToStartButton;
+    public Button retryButton;
 
     private bool isRoundStarted = false;
     private float hoverTimer = 0f;
@@ -29,7 +30,8 @@ public class RoundController : MonoBehaviour
         countdownText.text = "";
 
         nextDuelButton.gameObject.SetActive(false);
-        defeatButton.gameObject.SetActive(false);
+        goBackToStartButton.gameObject.SetActive(false);
+        retryButton.gameObject.SetActive(false);
     }
 
     void Update()
@@ -41,7 +43,7 @@ public class RoundController : MonoBehaviour
         }
 
         // Verifica se o mouse está sobre a imagem do círculo
-        if (IsMouseOverStartCircle())
+        if (IsMouseOverPlayerAmmoIndicator())
         {
             hoverTimer += Time.deltaTime;
             float timeLeft = hoverTime - hoverTimer;
@@ -61,10 +63,10 @@ public class RoundController : MonoBehaviour
         }
     }
 
-    bool IsMouseOverStartCircle()
+    bool IsMouseOverPlayerAmmoIndicator()
     {
         Vector2 mousePosition = Input.mousePosition;
-        return RectTransformUtility.RectangleContainsScreenPoint(startCircle, mousePosition, Camera.main);
+        return RectTransformUtility.RectangleContainsScreenPoint(playerAmmoIndicator, mousePosition, Camera.main);
     }
 
     void CheckIfRoundEnded()
@@ -74,7 +76,8 @@ public class RoundController : MonoBehaviour
             roundMessage.text = "Derrota!";
             playerController.canShoot = false;
             enemyController.canShoot = false;
-            defeatButton.gameObject.SetActive(true);
+            goBackToStartButton.gameObject.SetActive(true);
+            retryButton.gameObject.SetActive(true);
         }
         else if (enemyController.isDead)
         {
