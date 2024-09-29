@@ -554,6 +554,14 @@ PrefabInstance:
       propertyPath: fireForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69f4f313fbdcb41369e716939a919032, type: 3}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1729711914}
     - target: {fileID: 740249799238015041, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
       propertyPath: m_Name
       value: Weapon
@@ -3449,6 +3457,11 @@ PolygonCollider2D:
       - {x: 0.83636403, y: -0.103859715}
       - {x: 0.85570604, y: 0.21598335}
   m_UseDelaunayMesh: 0
+--- !u!82 &1729711914 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1764187530084524763, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+  m_PrefabInstance: {fileID: 234204179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1730593438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -821197637081413072, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
@@ -4226,6 +4239,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918828325}
   m_CullTransparentMesh: 1
+--- !u!82 &1933282658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1764187530084524763, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+  m_PrefabInstance: {fileID: 2119511648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1968861715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4555,6 +4573,14 @@ PrefabInstance:
       propertyPath: fireForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69f4f313fbdcb41369e716939a919032, type: 3}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1933282658}
     - target: {fileID: 740249799238015041, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
       propertyPath: m_Name
       value: Weapon

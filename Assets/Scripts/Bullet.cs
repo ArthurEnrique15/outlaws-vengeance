@@ -11,11 +11,21 @@ public class Bullet : MonoBehaviour
     public float legDamage = 15f;
     public float footDamage = 10f;
 
+    public AudioSource audioSource;  // Referência ao AudioSource da bala
+    private float destroyDelay = 0.5f;
+    private bool hasCollided = false;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (hasCollided) return;
 
-        if (collision.collider.name.Contains("head"))
+        hasCollided = true;
+
+        if (collision.collider.name.Contains("Ground"))
+        {
+            PlayRicochetSound();
+        }
+        else if (collision.collider.name.Contains("head"))
         {
             ApplyDamage(collision.collider, headDamage);
         }
@@ -35,6 +45,8 @@ public class Bullet : MonoBehaviour
         {
             ApplyDamage(collision.collider, footDamage, "foot");
         }
+
+        Destroy(gameObject, destroyDelay);
     }
 
     void ApplyDamage(Collider2D collider, float damage, string hitLocation = "")
@@ -49,6 +61,14 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage, hitLocation);
+        }
+    }
+
+    private void PlayRicochetSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Play();
         }
     }
 }

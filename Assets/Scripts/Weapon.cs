@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public float fireForce = 100f;
     // public float currentAmmo = 6;
+    public AudioSource audioSource; // Referência ao AudioSource
+    public AudioClip shootSound;    // Referência ao som do tiro
 
     public void Fire(float rotation)
     {
@@ -21,5 +23,15 @@ public class Weapon : MonoBehaviour
         bulletRb.SetRotation(rotation);
 
         // currentAmmo--;
+
+        PlayShootSound();
+    }
+
+    private void PlayShootSound()
+    {
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
 }
