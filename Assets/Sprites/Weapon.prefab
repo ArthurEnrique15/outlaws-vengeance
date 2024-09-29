@@ -49,7 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3197517554427877356, guid: df98eaa9cbc61ef41bb942c2d3c1679b, type: 3}
   firePoint: {fileID: 4109374717463646471}
-  fireForce: 20
+  fireForce: 100
+  currentAmmo: 6
+  audioSource: {fileID: 1764187530084524763}
+  shootSound: {fileID: 8300000, guid: 69f4f313fbdcb41369e716939a919032, type: 3}
+  emptySound: {fileID: 8300000, guid: 8deee25fee7d842918c4187badbb8b9d, type: 3}
 --- !u!212 &2241478604207466934
 SpriteRenderer:
   m_ObjectHideFlags: 0

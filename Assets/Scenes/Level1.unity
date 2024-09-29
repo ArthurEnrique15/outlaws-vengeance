@@ -555,6 +555,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: emptySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8deee25fee7d842918c4187badbb8b9d, type: 3}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: 69f4f313fbdcb41369e716939a919032, type: 3}
