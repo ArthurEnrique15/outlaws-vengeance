@@ -12,7 +12,7 @@ public class StoryController : MonoBehaviour
         "Jake Blackwood era um pistoleiro do antigo velho oeste." + 
         " O mesmo era um dos pistoleiros mais temidos de sua epoca com uma vasta ficha criminal," + 
         " incluindo assaltos a bancos, assassinatos de aluguel e outros crimes." +
-        " Um dia ele resolveu querer ter uma família, mas para isso ele teria que largar sua vida de crimes" +
+        " Um dia ele resolveu querer ter uma familia, mas para isso ele teria que largar sua vida de crimes" +
         " para poder encontrar alguem que ame-o. Ele decidiu que era hora de procurar novos rumos e mudou-se para longe.",
         
         "Jane S. Blackwood foi a pessoa amada que Jake encontrou em seu caminho. Ela, por ter vivido sempre" +
@@ -70,7 +70,7 @@ public class StoryController : MonoBehaviour
         foreach (char letter in textToType)
         {
             storyText.text += letter;
-            yield return new WaitForSeconds(0.005f); // Tempo entre cada caractere (ajuste conforme desejar)
+            yield return new WaitForSeconds(0.01f); // Tempo entre cada caractere (ajuste conforme desejar)
         }
 
         isTyping = false; // O texto terminou de ser digitado
