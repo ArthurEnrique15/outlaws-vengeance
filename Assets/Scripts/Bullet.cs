@@ -5,11 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float headDamage = 60f;
-    public float upperTorsoDamage = 30f;
-    public float lowerTorsoDamage = 20f;
-    public float legDamage = 15f;
-    public float footDamage = 10f;
+    public float headDamage = 80f;
+    public float upperTorsoDamage = 70f;
+    public float lowerTorsoDamage = 60f;
+    public float legDamage = 50f;
+    public float footDamage = 40f;
 
     public AudioSource audioSource;  // Referência ao AudioSource da bala
     private float destroyDelay = 0.5f;

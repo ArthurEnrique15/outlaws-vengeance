@@ -177,11 +177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 287152354187247930}
-  headDamage: 60
-  upperTorsoDamage: 30
-  lowerTorsoDamage: 20
-  legDamage: 15
-  footDamage: 10
+  headDamage: 80
+  upperTorsoDamage: 70
+  lowerTorsoDamage: 60
+  legDamage: 50
+  footDamage: 40
   audioSource: {fileID: 8060268648577225794}
 --- !u!1 &7915985593469687671
 GameObject:
