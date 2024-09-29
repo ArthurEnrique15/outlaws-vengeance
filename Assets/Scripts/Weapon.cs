@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Importa o namespace para trabalhar com UI
 
 public class Weapon : MonoBehaviour
 {
@@ -8,9 +9,18 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public float fireForce = 100f;
     public float currentAmmo = 6;
-    public AudioSource audioSource; // Referência ao AudioSource
-    public AudioClip shootSound;    // Referência ao som do tiro
-    public AudioClip emptySound;    // Referência ao som de munição vazia
+    public AudioSource audioSource;
+    public AudioClip shootSound;
+    public AudioClip emptySound;
+
+    // Referências para UI
+    public Image ammoIndicatorImage; // O componente Image na UI
+    public Sprite[] revolverSprites; // Array com os sprites do tambor do revólver
+
+    private void Start()
+    {
+        UpdateAmmoIndicator(); // Atualiza a imagem do tambor no início
+    }
 
     public void Fire(float rotation)
     {
@@ -24,9 +34,8 @@ public class Weapon : MonoBehaviour
             bulletRb.SetRotation(rotation);
 
             currentAmmo--;
+            UpdateAmmoIndicator(); // Atualiza a imagem do tambor
         }
-
-        Debug.Log("Current Ammo: " + currentAmmo);
 
         PlayShootSound();
     }
@@ -43,6 +52,16 @@ public class Weapon : MonoBehaviour
             {
                 audioSource.PlayOneShot(emptySound);
             }
+        }
+    }
+
+    private void UpdateAmmoIndicator()
+    {
+        if (ammoIndicatorImage != null && revolverSprites.Length > 0)
+        {
+            // Atualiza a imagem do tambor com base na munição restante
+            int spriteIndex = Mathf.Clamp((int)currentAmmo, 0, revolverSprites.Length - 1);
+            ammoIndicatorImage.sprite = revolverSprites[spriteIndex];
         }
     }
 }

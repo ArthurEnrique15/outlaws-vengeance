@@ -6,7 +6,7 @@ using TMPro;
 
 public class RoundController : MonoBehaviour
 {
-    public GameObject startCircle;  // O círculo abaixo do jogador
+    public RectTransform startCircle;  // O círculo da UI
     public PlayerController playerController;
     public EnemyController enemyController;
     public float hoverTime = 3f;    // Tempo necessário para iniciar o round
@@ -18,11 +18,9 @@ public class RoundController : MonoBehaviour
 
     private bool isRoundStarted = false;
     private float hoverTimer = 0f;
-    private Collider2D circleCollider;
 
     void Start()
     {
-        circleCollider = startCircle.GetComponent<Collider2D>();
         playerController.canShoot = false;
         enemyController.canShoot = false;
 
@@ -42,10 +40,8 @@ public class RoundController : MonoBehaviour
             return;
         }
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; // Ajuste do eixo Z para 2D
-
-        if (circleCollider.OverlapPoint(mousePosition))
+        // Verifica se o mouse está sobre a imagem do círculo
+        if (IsMouseOverStartCircle())
         {
             hoverTimer += Time.deltaTime;
             float timeLeft = hoverTime - hoverTimer;
@@ -65,16 +61,24 @@ public class RoundController : MonoBehaviour
         }
     }
 
-    void CheckIfRoundEnded() {
-        if (playerController.isDead) {
+    bool IsMouseOverStartCircle()
+    {
+        Vector2 mousePosition = Input.mousePosition;
+        return RectTransformUtility.RectangleContainsScreenPoint(startCircle, mousePosition, Camera.main);
+    }
+
+    void CheckIfRoundEnded()
+    {
+        if (playerController.isDead)
+        {
             roundMessage.text = "Derrota!";
-            // countdownText.text = "Pressione R para reiniciar";
             playerController.canShoot = false;
             enemyController.canShoot = false;
             defeatButton.gameObject.SetActive(true);
-        } else if (enemyController.isDead) {
+        }
+        else if (enemyController.isDead)
+        {
             roundMessage.text = "Vitoria!";
-            // countdownText.text = "Pressione R para reiniciar";
             playerController.canShoot = false;
             enemyController.canShoot = false;
             nextDuelButton.gameObject.SetActive(true);
