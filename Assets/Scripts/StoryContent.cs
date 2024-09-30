@@ -27,7 +27,10 @@ public class StoryController : MonoBehaviour
         "Vinganca pelo assassinato de Jane era o objetivo-mor da vida do pistoleiro Jake e ele estava decidido a encontrar um por um." +
         " Fazendo suas investigacoes, nosso protagonista descobriu quem eram cada um dos assassinos de sua esposa. Surpreendendo um total de 0 pessoas, ele as conhecia." +
         " Mais do que isso, ele nao queria uma vinganca covarde, eliminando membros da familia de seus algozes. Optou por um duelo X1 com cada uma dessas pessoas." +
-        " Agora, QUE COMECEM OS DUELOS!!"
+        " Agora, QUE COMECEM OS DUELOS!!",
+
+        "O primeir inimigo: Wild Bill Hiccup. Pistoleiro cruel com um card impecavel de duelos que foi o responsavel por matar Jane." +
+        " Sera que ele vai conseguir manter seu placar impecavel ou sera o fim de sua vida pelas maos de um viuvo vingativo?"
     };
 
     private int currentChunk = 0;
