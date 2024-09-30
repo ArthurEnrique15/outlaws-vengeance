@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public HealthBar healthBar;
     public float health = 100f;
-    public bool canShoot = false;
+    public bool isEnabled = false;
     public bool isDead = false;
 
     public float minRandomOffset = -15f; // Mínimo de desvio aleatório (em graus)
@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
     {
         if (health <= 0) return;
 
-        if (!canShoot) return;
+        if (!isEnabled) return;
 
         // Atualiza o temporizador para o disparo
         fireCooldown -= Time.deltaTime; // Diminui o cooldown a cada frame
@@ -54,6 +54,8 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float damage, string hitLocation = "")
     {
+        if (!isEnabled) return;
+
         health -= damage;
         healthBar.SetHealthSliderValue(health);
 

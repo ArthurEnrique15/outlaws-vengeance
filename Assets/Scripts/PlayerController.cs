@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float health = 100f;
     public HealthBar healthBar;
-    public bool canShoot = false;
+    public bool isEnabled = false;
     public bool isDead = false;
 
     Vector3 mousePosition;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
         RotateArmAndWeaponTowardsMouse();
 
-        if(canShoot && Input.GetMouseButtonDown(0))
+        if(isEnabled && Input.GetMouseButtonDown(0))
         {
             weapon.Fire(currentAngle);
         }
@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string hitLocation = "")
     {
+        if (!isEnabled) return;
+
         health -= damage;
         healthBar.SetHealthSliderValue(health);
 

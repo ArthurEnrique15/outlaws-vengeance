@@ -22,8 +22,8 @@ public class RoundController : MonoBehaviour
 
     void Start()
     {
-        playerController.canShoot = false;
-        enemyController.canShoot = false;
+        playerController.isEnabled = false;
+        enemyController.isEnabled = false;
 
         // Configuração inicial da mensagem e do contador
         roundMessage.text = "Mantenha o mouse sobre o circulo para iniciar!";
@@ -74,16 +74,16 @@ public class RoundController : MonoBehaviour
         if (playerController.isDead)
         {
             roundMessage.text = "Derrota!";
-            playerController.canShoot = false;
-            enemyController.canShoot = false;
+            playerController.isEnabled = false;
+            enemyController.isEnabled = false;
             goBackToStartButton.gameObject.SetActive(true);
             retryButton.gameObject.SetActive(true);
         }
         else if (enemyController.isDead)
         {
             roundMessage.text = "Vitoria!";
-            playerController.canShoot = false;
-            enemyController.canShoot = false;
+            playerController.isEnabled = false;
+            enemyController.isEnabled = false;
             nextDuelButton.gameObject.SetActive(true);
         }
     }
@@ -91,8 +91,8 @@ public class RoundController : MonoBehaviour
     void StartRound()
     {
         isRoundStarted = true;
-        playerController.canShoot = true; // Permite o player atirar
-        enemyController.canShoot = true;  // Permite o inimigo atirar
+        playerController.isEnabled = true; // Permite o player atirar
+        enemyController.isEnabled = true;  // Permite o inimigo atirar
 
         // Atualiza as mensagens
         roundMessage.text = "Round iniciado!";
