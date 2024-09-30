@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Lore.unity
     guid: cfeb908b7f3a5454f9b54e5a3827d825
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 46adc0bfbb7b4dc4d8ae6b51cd74a953
   - enabled: 1
     path: Assets/Scenes/Level2.unity
