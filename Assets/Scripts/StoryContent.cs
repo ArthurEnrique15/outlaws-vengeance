@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StoryController : MonoBehaviour
 {
     public Text storyText;
     public Button continueButton;
-
-    private string[] storyChunks = new string[]
+    private string[] loreStoryChunks = new string[]
     {
         "Jake Blackwood era um pistoleiro do antigo velho oeste." + 
         " O mesmo era um dos pistoleiros mais temidos de sua epoca com uma vasta ficha criminal," + 
@@ -29,9 +29,23 @@ public class StoryController : MonoBehaviour
         " Mais do que isso, ele nao queria uma vinganca covarde, eliminando membros da familia de seus algozes. Optou por um duelo X1 com cada uma dessas pessoas." +
         " Agora, QUE COMECEM OS DUELOS!!",
 
-        "O primeir inimigo: Wild Bill Hiccup. Pistoleiro cruel com um card impecavel de duelos que foi o responsavel por matar Jane." +
+        "O primeiro inimigo: Wild Bill Hiccup. Pistoleiro cruel com um card impecavel de duelos que foi o responsavel por matar Jane." +
         " Sera que ele vai conseguir manter seu placar impecavel ou sera o fim de sua vida pelas maos de um viuvo vingativo?"
     };
+
+    private string[] level1VictoryStoryChunks = new string[]
+    {
+        "Jake Blackwood conseguiu vingar a morte de sua amada Jane, eliminando Wild Bill Hiccup.",
+        "Agora e hora do proximo algoz",
+    };
+
+    private string[] level2VictoryStoryChunks = new string[]
+    {
+        "Jake Blackwood conseguiu vingar a morte de sua amada Jane, eliminando o segundo algoz.",
+        "Agora e hora do proximo algoz",
+    };
+
+    private string[] storyChunks;
 
     private int currentChunk = 0;
     private Coroutine typingCoroutine; // Armazena a corrotina atual
@@ -39,7 +53,20 @@ public class StoryController : MonoBehaviour
 
     void Start()
     {
-        // Exibir o primeiro trecho da história
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Lore")
+        {
+            storyChunks = loreStoryChunks;
+        }
+        else if (sceneName == "Level 1 Victory")
+        {
+            storyChunks = level1VictoryStoryChunks;
+        }
+        else if (sceneName == "Level 2 Victory")
+        {
+            storyChunks = level2VictoryStoryChunks;
+        }
+
         typingCoroutine = StartCoroutine(TypeText(storyChunks[currentChunk]));
     }
 
