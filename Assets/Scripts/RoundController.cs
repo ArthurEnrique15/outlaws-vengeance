@@ -18,6 +18,7 @@ public class RoundController : MonoBehaviour
     public Button retryButton;
 
     private bool isRoundStarted = false;
+    private bool roundEnded = false;
     private float hoverTimer = 0f;
 
     void Start()
@@ -71,8 +72,11 @@ public class RoundController : MonoBehaviour
 
     void CheckIfRoundEnded()
     {
+        if (roundEnded) return;
+
         if (playerController.isDead)
         {
+            roundEnded = true;
             roundMessage.text = "Derrota!";
             playerController.isEnabled = false;
             enemyController.isEnabled = false;
@@ -81,10 +85,15 @@ public class RoundController : MonoBehaviour
         }
         else if (enemyController.isDead)
         {
+            roundEnded = true;
             roundMessage.text = "Vitoria!";
             playerController.isEnabled = false;
             enemyController.isEnabled = false;
             nextDuelButton.gameObject.SetActive(true);
+        }
+        else if (playerController.weapon.currentAmmo == 0 && enemyController.weapon.currentAmmo == 0)
+        {
+            StartCoroutine(SetDraw());
         }
     }
 
@@ -97,5 +106,19 @@ public class RoundController : MonoBehaviour
         // Atualiza as mensagens
         roundMessage.text = "Round iniciado!";
         countdownText.text = "";
+    }
+
+    IEnumerator SetDraw()
+    {
+        yield return new WaitForSeconds(1);
+
+        if (roundEnded) yield break;
+
+        roundMessage.text = "Empate!";
+        playerController.isEnabled = false;
+        enemyController.isEnabled = false;
+        goBackToStartButton.gameObject.SetActive(true);
+        retryButton.gameObject.SetActive(true);
+        roundEnded = true;
     }
 }

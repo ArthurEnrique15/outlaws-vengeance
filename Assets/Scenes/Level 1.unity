@@ -947,6 +947,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1729711914}
     - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: currentAmmo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
       propertyPath: ammoIndicatorImage
       value: 
       objectReference: {fileID: 523817048}
@@ -2918,7 +2922,7 @@ MonoBehaviour:
   animator: {fileID: 1112840860}
   health: 100
   healthBar: {fileID: 1063609149}
-  canShoot: 0
+  isEnabled: 0
   isDead: 0
 --- !u!4 &1112840858 stripped
 Transform:
@@ -4455,7 +4459,7 @@ MonoBehaviour:
   animator: {fileID: 1853450229}
   healthBar: {fileID: 624746402}
   health: 100
-  canShoot: 0
+  isEnabled: 0
   isDead: 0
   minRandomOffset: -12
   maxRandomOffset: 3
@@ -4889,6 +4893,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1933282658}
+    - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
+      propertyPath: currentAmmo
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 254849057871615806, guid: 96f177ac3275441e4bc2b015db5b0d7b, type: 3}
       propertyPath: ammoIndicatorImage
       value: 
