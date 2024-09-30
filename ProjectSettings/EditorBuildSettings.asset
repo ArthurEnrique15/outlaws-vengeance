@@ -15,14 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Lore.unity
     guid: cfeb908b7f3a5454f9b54e5a3827d825
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 46adc0bfbb7b4dc4d8ae6b51cd74a953
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 3d22fd33256d34117ae8f7647b3aa340
+    path: Assets/Scenes/Level 2.unity
+    guid: a38324b35a48547a9a5ad2646b23db1c
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
-    guid: 34934235ea66c4948b05c1436216f854
+    path: Assets/Scenes/Level 3.unity
+    guid: 461f9a7531dc54b778d80f2bad359938
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: 672533b6443654f848d2a531e565ac16

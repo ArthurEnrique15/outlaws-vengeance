@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("CrossfadeStart");
+        transition.SetTrigger("CrossFadeStart");
 
         yield return new WaitForSeconds(1);
 
