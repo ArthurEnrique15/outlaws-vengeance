@@ -1077,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7848548140191156466, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.37901905
+      value: -0.38070148
       objectReference: {fileID: 0}
     - target: {fileID: -7848548140191156466, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1085,11 +1085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7848548140191156466, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.92538893
+      value: -0.924698
       objectReference: {fileID: 0}
     - target: {fileID: -7848548140191156466, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -224.546
+      value: -224.754
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: c73c0628a9acf492aa1e26a49a37e197, type: 3}
       propertyPath: m_LocalScale.x
@@ -3372,8 +3372,8 @@ PolygonCollider2D:
     - - {x: 0.30170465, y: 0.36582816}
       - {x: -0.29592037, y: 0.1182203}
       - {x: -0.06124437, y: -0.2715224}
-      - {x: 1.1079147, y: -0.16335708}
-      - {x: 0.8228553, y: 0.26379973}
+      - {x: 1.2175057, y: -0.13812432}
+      - {x: 0.9489712, y: 0.18389605}
   m_UseDelaunayMesh: 0
 --- !u!1 &1452181244
 GameObject:
@@ -4806,7 +4806,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5157,7 +5157,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
