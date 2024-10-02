@@ -36,13 +36,18 @@ public class StoryController : MonoBehaviour
     private string[] level1VictoryStoryChunks = new string[]
     {
         "Jake Blackwood conseguiu vingar a morte de sua amada Jane, eliminando Wild Bill Hiccup.",
-        "Agora e hora do proximo algoz",
+        " Agora e hora do proximo algoz. Se trata de Gerald Watterson. O mesmo foi o responsavel por ser o informante." +
+        " Fez toda a investigacao do paradeiro de Jake, ate mesmo tendo interacoes com membros de sua propria familia.",
+
+        "Como Watterson jogou Jake para um sofrimento eterno, Blackwood estava decidido a varre-lo da face da Terra e envia-lo ao tormento eterno."
     };
 
     private string[] level2VictoryStoryChunks = new string[]
     {
-        "Jake Blackwood conseguiu vingar a morte de sua amada Jane, eliminando o segundo algoz.",
-        "Agora e hora do proximo algoz",
+        "O encontro com o ultimo algoz foi um evento que machucou Jake: Warren J. Buescher. Foi um cara que ele mesmo transformou em quem ele foi, pois foi seu mentor. " + 
+        " Conheceu pobre e deu oportunidade. Tomou uma facada nas costas pois o poder subiu a mente.", 
+
+        "O duelo mais dificil em todos os sentidos, pois a expertise de tiro do algoz e alta. Tambem e como se ele estivesse matando um filho."
     };
 
     private string[] storyChunks;
