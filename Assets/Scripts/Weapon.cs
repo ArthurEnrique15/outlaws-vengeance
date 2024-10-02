@@ -24,6 +24,8 @@ public class Weapon : MonoBehaviour
 
     public void Fire(float rotation)
     {
+        PlayShootSound();
+
         if (currentAmmo > 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -36,8 +38,6 @@ public class Weapon : MonoBehaviour
             currentAmmo--;
             UpdateAmmoIndicator(); // Atualiza a imagem do tambor
         }
-
-        PlayShootSound();
     }
 
     private void PlayShootSound()

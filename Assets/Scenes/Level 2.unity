@@ -2918,7 +2918,7 @@ MonoBehaviour:
   animator: {fileID: 1112840860}
   health: 100
   healthBar: {fileID: 1063609149}
-  canShoot: 0
+  isEnabled: 0
   isDead: 0
 --- !u!4 &1112840858 stripped
 Transform:
@@ -4455,7 +4455,7 @@ MonoBehaviour:
   animator: {fileID: 1853450229}
   healthBar: {fileID: 624746402}
   health: 100
-  canShoot: 0
+  isEnabled: 0
   isDead: 0
   minRandomOffset: -12
   maxRandomOffset: 3
@@ -4802,7 +4802,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5149,7 +5149,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

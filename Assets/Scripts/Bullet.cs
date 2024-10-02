@@ -17,15 +17,18 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasCollided) return;
+        Debug.Log(collision.collider.name);
 
-        hasCollided = true;
+        Destroy(gameObject);
 
-        if (collision.collider.name.Contains("Ground"))
-        {
-            PlayRicochetSound();
-        }
-        else if (collision.collider.name.Contains("head"))
+        // if (collision.collider.name.Contains("Ground"))
+        // {
+        //     PlayRicochetSound();
+        // }
+
+        // Destroy(gameObject, destroyDelay);
+
+        if (collision.collider.name.Contains("head"))
         {
             ApplyDamage(collision.collider, headDamage);
         }
@@ -45,8 +48,6 @@ public class Bullet : MonoBehaviour
         {
             ApplyDamage(collision.collider, footDamage, "foot");
         }
-
-        Destroy(gameObject, destroyDelay);
     }
 
     void ApplyDamage(Collider2D collider, float damage, string hitLocation = "")
