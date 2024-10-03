@@ -12,8 +12,6 @@ public class Bullet : MonoBehaviour
     public float footDamage = 40f;
 
     public AudioSource audioSource;  // Referência ao AudioSource da bala
-    private float destroyDelay = 0.5f;
-    private bool hasCollided = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
