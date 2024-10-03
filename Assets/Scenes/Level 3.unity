@@ -4485,7 +4485,7 @@ MonoBehaviour:
   isDead: 0
   minRandomOffset: -12
   maxRandomOffset: 3
-  fireRate: 0.3
+  fireRate: 0.2
 --- !u!1 &2112969391
 GameObject:
   m_ObjectHideFlags: 0

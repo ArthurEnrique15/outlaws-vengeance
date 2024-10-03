@@ -4463,7 +4463,7 @@ MonoBehaviour:
   isDead: 0
   minRandomOffset: -12
   maxRandomOffset: 3
-  fireRate: 0.5
+  fireRate: 0.4
 --- !u!95 &1853450229
 Animator:
   serializedVersion: 5
