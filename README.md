@@ -2,7 +2,7 @@
 
 ## Como jogar o jogo
 1. Baixe o arquivo em formato zip do [Outlaws' Vengeance](https://drive.google.com/file/d/19b9L_63yOMgjQL4EMAcBJsvtEgO-M7_E/view).
-2. Copie o arquivo para uma pasta vazia em seu computador de sua escolha.
+2. Copie o arquivo para uma pasta vazia de sua escolha em seu computador.
 3. Extraia o arquivo.
 4. Execute o Outlaws' Vengeance.exe e bom jogo!
 
