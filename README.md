@@ -8,6 +8,10 @@
 
 ## Controles do jogo
 As regras são simples, pois o único periférico a ser utilizado é o mouse.
+
+No momento que a história é exibida após iniciar o jogo, clique no botão de "Continuar" enquando o texto é introduzido se você optar por adiantar a exibição da história.
+
+
 Para começar o duelo, mantenha o cursor de seu mouse sobre a ilustração do tambor (circulado em amarelo na imagem abaixo) do revólver por exatamente três segundos.
 Mire com o mouse, e atire com LMB (Botão de Mouse da Esquerda) no seu inimigo. Cada clique é um tiro, pois a arma não é automática.
 
